@@ -65,33 +65,33 @@
 					 //3
 					 list("key"=/obj/item/stack/material/steel,
 					 		"backkey"=/obj/item/weapon/weldingtool,
-					 		"desc"="Internal armor is welded."),
+					 		"desc"="Hydraulic actuator is welded."),
 					 //4
 					 list("key"=/obj/item/weapon/weldingtool,
 					 		"backkey"=/obj/item/weapon/wrench,
-					 		"desc"="Internal armor is wrenched"),
+					 		"desc"="Hydraulic actuator is wrenched"),
 					 //5
 					 list("key"=/obj/item/weapon/wrench,
 					 		"backkey"=/obj/item/weapon/crowbar,
-					 		"desc"="Internal armor is installed"),
+					 		"desc"="Hydraulic actuator is installed"),
 					 //6
-					 list("key"=/obj/item/stack/material/steel,
+					 list("key"=/obj/item/actuator/hydraulic,
 					 		"backkey"=/obj/item/weapon/screwdriver,
-					 		"desc"="Peripherals control module is secured"),
+					 		"desc"="Pneumatic actuator is secured"),
 					 //7
 					 list("key"=/obj/item/weapon/screwdriver,
 					 		"backkey"=/obj/item/weapon/crowbar,
-					 		"desc"="Peripherals control module is installed"),
+					 		"desc"="Pneumatic actuator is installed"),
 					 //8
-					 list("key"=/obj/item/weapon/circuitboard/mecha/ripley/peripherals,
+					 list("key"=/obj/item/actuator/pneumatic,
 					 		"backkey"=/obj/item/weapon/screwdriver,
-					 		"desc"="Central control module is secured"),
+					 		"desc"="Engine block is secured"),
 					 //9
 					 list("key"=/obj/item/weapon/screwdriver,
 					 		"backkey"=/obj/item/weapon/crowbar,
-					 		"desc"="Central control module is installed"),
+					 		"desc"="Engine block is installed"),
 					 //10
-					 list("key"=/obj/item/weapon/circuitboard/mecha/ripley/main,
+					 list("key"=/obj/item/engine,
 					 		"backkey"=/obj/item/weapon/screwdriver,
 					 		"desc"="The wiring is adjusted"),
 					 //11
@@ -148,7 +148,7 @@
 					holder.icon_state = "WU-scout"
 			if(10)
 				if(diff==FORWARD)
-					user.visible_message("[user] installs the central control module into [holder].", "You install the central computer mainboard into [holder].")
+					user.visible_message("[user] installs the engine block into [holder].", "You install the engine block into [holder].")
 					qdel(used_atom)
 					holder.icon_state = "WU-scout"
 				else
@@ -156,57 +156,57 @@
 					holder.icon_state = "WU-scout"
 			if(9)
 				if(diff==FORWARD)
-					user.visible_message("[user] secures the mainboard.", "You secure the mainboard.")
+					user.visible_message("[user] secures the engine block.", "You secure the engine block.")
 					holder.icon_state = "WU-scout"
 				else
-					user.visible_message("[user] removes the central control module from [holder].", "You remove the central computer mainboard from [holder].")
-					new /obj/item/weapon/circuitboard/mecha/ripley/main(get_turf(holder))
+					user.visible_message("[user] removes the engine block from [holder].", "You remove the engine block from [holder].")
+					new /obj/item/engine(get_turf(holder))
 					holder.icon_state = "WU-scout"
 			if(8)
 				if(diff==FORWARD)
-					user.visible_message("[user] installs the peripherals control module into [holder].", "You install the peripherals control module into [holder].")
+					user.visible_message("[user] installs the pneumatic actuator into [holder].", "You install the pneumatic actuator into [holder].")
 					qdel(used_atom)
 					holder.icon_state = "WU-scout"
 				else
-					user.visible_message("[user] unfastens the mainboard.", "You unfasten the mainboard.")
+					user.visible_message("[user] unfastens the engine block.", "You unfasten the engine block.")
 					holder.icon_state = "WU-scout"
 			if(7)
 				if(diff==FORWARD)
-					user.visible_message("[user] secures the peripherals control module.", "You secure the peripherals control module.")
+					user.visible_message("[user] secures the pneumatic actuator.", "You secure the pneumatic actuator.")
 					holder.icon_state = "WU-scout"
 				else
-					user.visible_message("[user] removes the peripherals control module from [holder].", "You remove the peripherals control module from [holder].")
-					new /obj/item/weapon/circuitboard/mecha/ripley/peripherals(get_turf(holder))
+					user.visible_message("[user] removes the pneumatic actuator from [holder].", "You remove the pneumatic actuator from [holder].")
+					new /obj/item/actuator/pneumatic(get_turf(holder))
 					holder.icon_state = "WU-scout"
 			if(6)
 				if(diff==FORWARD)
-					user.visible_message("[user] installs internal armor layer to [holder].", "You install internal armor layer to [holder].")
+					user.visible_message("[user] installs the hydraulic actuator to [holder].", "You install the hydraulic actuator to [holder].")
+					qdel(used_atom)
 					holder.icon_state = "WU-scout"
 				else
-					user.visible_message("[user] unfastens the peripherals control module.", "You unfasten the peripherals control module.")
+					user.visible_message("[user] unfastens the pneumatic actuator.", "You unfasten the pneumatic actuator.")
 					holder.icon_state = "WU-scout"
 			if(5)
 				if(diff==FORWARD)
-					user.visible_message("[user] secures internal armor layer.", "You secure internal armor layer.")
+					user.visible_message("[user] secures the hydraulic actuator.", "You secure the hydraulic actuator.")
 					holder.icon_state = "WU-scout"
 				else
-					user.visible_message("[user] pries internal armor layer from [holder].", "You prie internal armor layer from [holder].")
-					var/obj/item/stack/material/steel/MS = new /obj/item/stack/material/steel(get_turf(holder))
-					MS.amount = 5
+					user.visible_message("[user] pries the hydraulic actuator from [holder].", "You pry the hydraulic actuator from [holder].")
+					new /obj/item/actuator/hydraulic(get_turf(holder))
 					holder.icon_state = "WU-scout"
 			if(4)
 				if(diff==FORWARD)
-					user.visible_message("[user] welds internal armor layer to [holder].", "You weld the internal armor layer to [holder].")
+					user.visible_message("[user] welds the hydraulic actuator to [holder].", "You weld the hydraulic actuator to [holder].")
 					holder.icon_state = "WU-scout"
 				else
-					user.visible_message("[user] unfastens the internal armor layer.", "You unfasten the internal armor layer.")
+					user.visible_message("[user] unfastens the hydraulic actuator.", "You unfasten the hydraulic actuator.")
 					holder.icon_state = "WU-scout"
 			if(3)
 				if(diff==FORWARD)
 					user.visible_message("[user] installs external reinforced armor layer to [holder].", "You install external reinforced armor layer to [holder].")
 					holder.icon_state = "WU-scout"
 				else
-					user.visible_message("[user] cuts internal armor layer from [holder].", "You cut the internal armor layer from [holder].")
+					user.visible_message("[user] cuts the hydraulic actuator from [holder].", "You cut the hydraulic actuator from [holder].")
 					holder.icon_state = "WU-scout"
 			if(2)
 				if(diff==FORWARD)

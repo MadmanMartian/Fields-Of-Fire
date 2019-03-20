@@ -265,4 +265,35 @@ obj/item/device/whistle/attack_self(mob/living/carbon/user as mob)
 	desc = "A can of ham meant to last months in the trenches. Open with a can opener."
 	icon_state = "ham"
 
+/*
+	MECH PARTS
+*/
+
+/obj/item/engine
+	icon = 'icons/FoF/things.dmi'
+	icon_state = "engineblock"
+	name = "engine block"
+	desc = "A small diesel engine block. The beating heart to any war machine."
+	throwforce = 15
+	throw_range = 2
+
+/obj/item/actuator
+	icon = 'icons/FoF/things.dmi'
+
+/obj/item/actuator/pneumatic
+	icon_state = "pneumothing"
+	name = "pneumatic actuator"
+	desc = "An expensive and very complex device used to compress air into energy to move parts of a machine."
+
+/obj/item/actuator/hydraulic
+	icon_state = "hydrothing"
+	name = "hydraulic actuator"
+	desc = "An extremely expensive and complex mechanism used to compress liquids into usable energy to move machine parts."
+
+/obj/item/gear
+	icon_state = "gear"
+	icon = 'icons/FoF/things.dmi'
+	name = "gear"
+	desc = "A heavy steel cog that passes along torque onto other parts of a machine to translate torque to move machine parts."
+
 #endif
