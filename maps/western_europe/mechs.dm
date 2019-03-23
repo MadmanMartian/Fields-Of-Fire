@@ -1,5 +1,6 @@
 /obj/effect/decal/mecha_wreckage/wuscout
 	name = "MA4 Scout Walker wreckage"
+	desc = "A demolished Western Union scout walker."
 	icon = 'icons/FoF/mech_infantry.dmi'
 	icon_state = "WU-scout_dead"
 	anchored = 1
@@ -19,6 +20,7 @@
 
 /obj/effect/decal/mecha_wreckage/wuscout/eb
 	name = "GSA2 Scout Walker wreckage"
+	desc = "The burnt husk of an Eastern Bloc scout walker."
 	icon_state = "EB-scout_dead"
 	New()
 		..()
@@ -357,10 +359,29 @@ obj/item/mecha_parts/part/wuscout_left_leg
 	max_temperature = 5000
 	internal_damage_threshold = 45
 	deflect_chance = 25
+	step_in = 2.5
+	cargo_capacity = 6
+	max_equip = 2
 	wreckage = /obj/effect/decal/mecha_wreckage/wuscout
+	damage_absorption = list("brute"=0.8,"fire"=1.5,"bullet"=0.8,"laser"=1,"energy"=1,"bomb"=1.5)
 
 /obj/mecha/combat/wuscout/eb
 	name = "GSA2 Scout Walker"
 	desc = "A robust design of light assault scout walker, the Gepanzerte Scout-Angriffsmaschine has remained unchanged for centuries and was built to operate as a lone element or support infantry."
 	icon_state = "EB-scout"
 	wreckage = /obj/effect/decal/mecha_wreckage/wuscout/eb
+
+/obj/mecha/combat/wuscout/New()
+	..() //internal storage for moving crates. think supply mule.
+	var/obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp/HC = new /obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp
+	HC.attach(src)
+
+/obj/mecha/combat/wuscout/Destroy()
+	for(var/atom/movable/A in src.cargo)
+		A.loc = loc
+		var/turf/T = loc
+		if(istype(T))
+			T.Entered(A)
+		step_rand(A)
+	cargo.Cut()
+	..()
