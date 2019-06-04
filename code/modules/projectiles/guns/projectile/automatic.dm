@@ -283,8 +283,14 @@
 		return
 	..()
 
+#define NEEDS_RESPRITE 'icons/FoF/weaponsnew.dmi'
+
 /obj/item/weapon/gun/projectile/wwi
-	icon = 'icons/FoF/weaponsnew.dmi'
+	icon = 'icons/FoF/munitionsx32.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/FoF/munitions_leftinhands.dmi',
+		slot_r_hand_str = 'icons/FoF/munitions_rightinhands.dmi',
+	)
 	force = 10
 	jam_chance = 5
 	attack_verb = list("beaten","clubbed","muzzle fucked","freedom rocked","stock bumped","whacked","smacked","slapped","crushed","crunched","bashed","clobbered","struck","busted","thumped","battered","pounded","pummeled","slammed","stabbed")
@@ -292,6 +298,7 @@
 /obj/item/weapon/gun/projectile/wwi/mg08
 	name = "\improper MG 08-15"
 	desc = "A lightened and thus more portable version of the original german MG08 heavy machinegun. Supports 50-round drum feed system. Uses 7.92mm ammo."
+	icon = 'icons/FoF/munitionsx35.dmi'
 	icon_state = "mg08"
 	item_state = "mg08_w"
 	caliber = "a792"
@@ -308,10 +315,6 @@
 		list(mode_name="long bursts",	burst=8, fire_delay=3, move_delay=15, one_hand_penalty=9, burst_accuracy = list(0,-2,-2,-3,-3,-4,-4,-5), dispersion = list(1.3, 1.3, 1.6, 1.6, 1.8, 1.8, 2.0, 2.0)),
 		list(mode_name="semi auto",	burst=1, fire_delay=0, move_delay=12, one_hand_penalty=8, burst_accuracy = list(0),          dispersion = list(1)),
 		)
-	item_icons = list(
-		slot_l_hand_str = 'icons/FoF/lefthand_guns.dmi',
-		slot_r_hand_str = 'icons/FoF/righthand_guns.dmi',
-		)
 	w_class = ITEM_SIZE_HUGE
 	max_shells = 50
 	slowdown_general = 2
@@ -327,6 +330,7 @@
 /obj/item/weapon/gun/projectile/wwi/lewis
 	name = "\improper Lewis gun"
 	desc = "An offshoot of the British Vickers machine gun, known by its distinctive barrel cooling shroud and top mounted 47-round pan magazine. Uses .303 British ammo."
+	icon = 'icons/FoF/munitionsx35.dmi'
 	icon_state = "lewis"
 	item_state = "mg08_w"
 	caliber = "a303"
@@ -341,10 +345,6 @@
 		list(mode_name="short bursts", fire_delay=3,	burst=5, move_delay=12, one_hand_penalty=8, burst_accuracy = list(0,-2,-2,-3,-3),          dispersion = list(1.3, 1.3, 1.6, 1.6, 1.8)),
 		list(mode_name="long bursts", fire_delay=3,	burst=8, move_delay=15, one_hand_penalty=9, burst_accuracy = list(0,-2,-2,-3,-3,-4,-4,-5), dispersion = list(1.3, 1.3, 1.6, 1.6, 1.8, 1.8, 2.0, 2.0)),
 		list(mode_name="semi auto", fire_delay=0,	burst=1, move_delay=12, one_hand_penalty=8, burst_accuracy = list(0),          dispersion = list(1)),
-		)
-	item_icons = list(
-		slot_l_hand_str = 'icons/FoF/lefthand_guns.dmi',
-		slot_r_hand_str = 'icons/FoF/righthand_guns.dmi',
 		)
 	w_class = ITEM_SIZE_HUGE
 	max_shells = 47
@@ -361,6 +361,7 @@
 /obj/item/weapon/gun/projectile/wwi/chauchat
 	name = "\improper FM Chauchat"
 	desc = "A French light machine gun, known for overheating and frequent failures. Supports 20-round magazine feed system. Uses 8mm ammo."
+	icon = NEEDS_RESPRITE
 	icon_state = "chauchat"
 	item_state = "chauchat"
 	caliber = "8mm"
@@ -398,6 +399,7 @@
 	desc = "A cheap Spanish pistol, favoured by the French army for its portability and decent firepower. Uses .32 ACP."
 	magazine_type = /obj/item/ammo_magazine/c32acp
 	ammo_type = /obj/item/ammo_casing/c32acp || /obj/item/ammo_casing/c32acp
+	icon = NEEDS_RESPRITE
 	icon_state = "ruby"
 	caliber = ".32"
 	fire_sound = 'sound/weapons/ruby.ogg'
@@ -418,6 +420,7 @@
 	desc = "A Mauser, expensive yet reliable German pistol. Takes 9mm stripper clips."
 	magazine_type = /obj/item/ammo_magazine/c9mm
 	fire_sound = 'sound/weapons/ruby.ogg'
+	icon = NEEDS_RESPRITE
 	icon_state = "c96"
 	caliber = "9mm"
 	max_shells = 10
@@ -437,6 +440,7 @@
 	name = "\improper Luger P08"
 	desc = "Standard German pistol, used by men who can't afford Mausers. Takes 9mm magazines."
 	magazine_type = /obj/item/ammo_magazine/c9mml
+	icon = 'icons/FoF/munitionsx32.dmi'
 	icon_state = "luger"
 	caliber = "9mm"
 	max_shells = 8
@@ -511,7 +515,7 @@ obj/item/weapon/gun/projectile/wwi/bolt/proc/bolt(mob/M as mob)
 /obj/item/weapon/gun/projectile/wwi/bolt/g98rifle
 	name = "\improper G98 rifle"
 	desc = "A simple yet reliable German rifle. Supports 7.92mm stripper clips."
-	icon_state = "g98"
+	icon_state = "karabiner"
 	item_state = "ba_rifle"
 	magazine_type = /obj/item/ammo_magazine/g792
 	force = 10
@@ -525,7 +529,8 @@ obj/item/weapon/gun/projectile/wwi/bolt/proc/bolt(mob/M as mob)
 /obj/item/weapon/gun/projectile/wwi/bolt/g98rifle/scoped
 	name = "\improper G98 scoped rifle"
 	desc = "A simple yet reliable German rifle with an attached scope. Supports 7.92mm stripper clips."
-	icon_state = "g98_scoped"
+	icon = 'icons/FoF/munitionsx35.dmi'
+	icon_state = "scoped-karabiner"
 	accuracy = 2
 	scoped_accuracy = 6
 
@@ -539,6 +544,7 @@ obj/item/weapon/gun/projectile/wwi/bolt/proc/bolt(mob/M as mob)
 /obj/item/weapon/gun/projectile/wwi/bolt/lebel
 	name = "\improper Lebel"
 	desc = "A sturdy old French rifle, able to be used as a club in a pinch. Uses 8mm ammo."
+	icon = NEEDS_RESPRITE
 	icon_state = "lebel"
 	caliber = "8mm"
 	fire_sound = 'sound/weapons/lebel.ogg'
@@ -551,6 +557,7 @@ obj/item/weapon/gun/projectile/wwi/bolt/proc/bolt(mob/M as mob)
 /obj/item/weapon/gun/projectile/wwi/bolt/smle
 	name = "\improper Lee-Enfield"
 	desc = "The British Army's standard rifle from its official adoption in 1895. Takes 5-round .303 British stripper clips."
+	icon = NEEDS_RESPRITE
 	icon_state = "smle"
 	slot_flags = SLOT_BACK
 	fire_sound = 'sound/weapons/smle.ogg'
